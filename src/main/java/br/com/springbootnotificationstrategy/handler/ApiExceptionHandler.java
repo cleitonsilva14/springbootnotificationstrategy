@@ -16,18 +16,19 @@ public class ApiExceptionHandler {
 
 	
 	@ExceptionHandler(NotificationChannelNotFound.class)
-	public ResponseEntity<ApiErrorMessage> notificationChannelNotFound(NotificationChannelNotFound exception, 
-			HttpServletRequest request
-			){
+	public ResponseEntity<ApiErrorMessage> notificationChannelNotFound(NotificationChannelNotFound exception, HttpServletRequest request){
 		
 		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 				.body(ApiErrorMessage
 						.builder()
 						.timestamp(LocalDateTime.now())
+						.code(HttpStatus.BAD_REQUEST.value())
+						.status(HttpStatus.BAD_REQUEST.name())
+						.method(request.getMethod())
+						.requestURI(request.getRequestURI())
 						.message(exception.getMessage())
 						.build());
-
 		
 	}
 	

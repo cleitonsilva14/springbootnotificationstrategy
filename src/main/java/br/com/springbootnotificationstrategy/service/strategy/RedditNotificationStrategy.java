@@ -12,7 +12,7 @@ public class RedditNotificationStrategy implements NotificationStrategy {
 	@Override
 	public void sendNotification(String destination, String message) {
 		// TODO Auto-generated method stub
-		logger.info("Notificação: [{}] enviada para o Telegram [{}]", message, destination);
+		logger.info("Notificação: [{}] enviada para o Reddit [{}]", message, destination);
 	}
 
 }

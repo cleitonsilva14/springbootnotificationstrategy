@@ -28,8 +28,7 @@ public class NotificationService {
 		
 		
 		Optional.ofNullable(strategies.get(channel))
-		.ifPresentOrElse(
-				strategy -> strategy.sendNotification(destination, message), 
+		.ifPresentOrElse(strategy -> strategy.sendNotification(destination, message), 
 				() -> {
 					//System.out.println("\033[31mCanal de notificação: %s inválido\033[m".formatted(channel));
 					throw new NotificationChannelNotFound("Canal de notificação: %s inválido".formatted(channel));

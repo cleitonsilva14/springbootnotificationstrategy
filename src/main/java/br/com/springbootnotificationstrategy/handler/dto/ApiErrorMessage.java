@@ -9,8 +9,8 @@ public record ApiErrorMessage(
 		LocalDateTime timestamp,
 		Integer code,
 		String status,
-		String message,
 		String method,
-		String requestURI
+		String requestURI,
+		String message
 		) {
 }
